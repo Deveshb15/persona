@@ -9,8 +9,7 @@ const Chat = dynamic(() => import("@/components/Chat"), {
 
 export default async function Page({ params }: { params: { person: string } }) {
   const accessToken = await getHumeAccessToken();
-  // console.log(" PARAMS ", params)
-  const configId = configs.find((config) => config.role === params.person)?.configId || configs[0].configId;
+  const configId = configs.find((config) => config.configId === params.person)?.configId || configs[0].configId;
   console.log(" CONFIG ID ", configId)
 
   if (!accessToken) {
